@@ -35,7 +35,7 @@ class Auth extends CI_Controller {
             $data = [
                 'name' => $this->input->post('name'),
                 'email' => $this->input->post('email'),
-                'ima' => $this->input->post('ima'),
+                'images' => $this->input->post('ima'),
             ];
         }
     }
