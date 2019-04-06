@@ -44,7 +44,11 @@ class Auth extends CI_Controller {
                         'role_id' => $user['role_id']
                     ];
                     $this->session->set_userdata($data);
-                    redirect('user');
+                    if ($user['role_id'] == 1) {
+                        redirect('admin');
+                    } else {
+                        redirect('user');
+                    }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Wrong password!</div>');
                     redirect('auth');
@@ -73,7 +77,8 @@ class Auth extends CI_Controller {
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|min_length[3]|matches[password1]');
 
         if( $this->form_validation->run() == false ){
-            $this->load->view('templates/auth_header.php');
+            $data['title'] = 'Form register';
+            $this->load->view('templates/auth_header.php', $data);
             $this->load->view('auth/registrasion.php');
             $this->load->view('templates/auth_footer.php');
         } else {
