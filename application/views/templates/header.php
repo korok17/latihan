@@ -22,4 +22,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
